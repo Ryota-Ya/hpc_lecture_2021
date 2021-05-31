@@ -56,9 +56,10 @@ int main(int argc, char** argv) {
     comm_time += chrono::duration<double>(tic - toc).count();
   }
   MPI_Allgather(&subC[0], N*N/size, MPI_FLOAT, &C[0], N*N/size, MPI_FLOAT, MPI_COMM_WORLD);
+#pragma omp parallel for
   for (int i=0; i<N; i++)
-    for (int j=0; j<N; j++)
-      for (int k=0; k<N; k++)
+    for (int k=0; k<N; k++)
+      for (int j=0; j<N; j++)
         C[N*i+j] -= A[N*i+k] * B[N*k+j];
   double err = 0;
   for (int i=0; i<N; i++)
