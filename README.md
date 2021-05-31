@@ -1,3 +1,6 @@
+student_id : 21M30815  
+name : Ryota Yakushiji
+
 # hpc_lecture
 
 |          | Topic                                | Sample code               |
