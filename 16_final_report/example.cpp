@@ -76,7 +76,6 @@ int main(int argc, char** argv) {
                     __m256 Cvec = _mm256_load_ps(Cc+i*nc+j);
                     Cvec = _mm256_fmadd_ps(Avec, Bvec, Cvec);
                     _mm256_store_ps(Cc+i*nc+j, Cvec); 
-                    //Cc[i*nc+j] += Ac[i*kc+kr] * Bc[kr*nc+j];
                   }
                 }
               }
